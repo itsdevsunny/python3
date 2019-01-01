@@ -127,3 +127,9 @@ name = "Kulfi"
 string21 = f"{greet} {name.upper()} welcome"
 
 print(string21)
+
+tuple_string = ("SAM", "26")
+
+string22 = "{} is {} year old".format(tuple_string[0], tuple_string[1])
+
+print(string22)
