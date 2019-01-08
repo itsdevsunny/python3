@@ -1,3 +1,3 @@
 # python3
 
-This is simple pratice file learning python3 
+This is simple practice file learning python3 
