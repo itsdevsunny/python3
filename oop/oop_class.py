@@ -25,3 +25,19 @@ emp2 = Employee("Rishi", "Kapoor", 28)
 
 print(Employee.fullDetails(emp1))
 print(Employee.fullDetails(emp2))
+
+
+'''
+this import is for testing if __name__=='__main__':
+'''
+from inheritance import Developer
+
+emp3=Developer('Dare', 'Truth', 50000, "Javascript")
+
+print(emp3.full_name().__class__)
+
+print(emp3.__class__)
+
+emp3.test_cls()
+
+print(dir(Developer))

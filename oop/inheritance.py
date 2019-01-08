@@ -7,15 +7,28 @@ class Employee:
 		self.last_name = last
 		self.salary = salary
 
-	def fullName(self):
+	def full_name(self):
 		return self.first_name +" "+ self.last_name
+		# return '{} {}'.format(self.first_name, self.last_name)	
 
-	def fullDetails(self):
-		return f"Hi my name is {self.fullName()} and my salary package is Rs.{self.salary}."
+	def full_details(self):
+		# return f"Hi my name is {self.fullName()} and my salary package is Rs.{self.salary}."
+		print(f"Hi my name is {self.full_name()} and my salary package is Rs.{self.salary}.")
 
-	def raiseSal(self):
-		self.salary += self.salary* self.raise_sal
-		return f"My recent salary raise is {self.salary}."
+
+	def raise_sala(self):
+		self.salary = self.salary * self.raise_sal
+		# return self.salary	
+		# return f"My recent salary raise is {self.salary}."
+		print(f"My recent salary raise is {self.salary}.")
+
+	@staticmethod
+	def test_me(data):
+		print(f"{data}")
+
+	@classmethod
+	def test_cls(cls):
+		print(f'I am called from {cls.__name__}')
 
 
 class Developer(Employee):
@@ -44,13 +57,19 @@ class Manager(Employee):
 
 	def print_emp(self):
 		for emp in self.emps:
-			print("-->", emp.fullName())
+			print("-->", emp.full_name())
 
-emp1 = Employee("Ram", "Tej", 10000)
-emp2 = Developer("Rishi", "Kapoor", 10000, "Python")
 
-emp3 = Manager("Foo", "Bar", 10000, [emp2])
-
-print(emp3.first_name)
-# print(emp3.add_emp([emp1]))
-print(emp3.print_emp())
+if __name__=="__main__":
+	emp1 = Employee("Ram", "Tej", 10000)
+	emp2 = Developer("Rishi", "Kapoor", 10000, "Python")
+	emp3 = Manager("Foo", "Bar", 10000, [emp2])
+	emp3.add_emp(emp1)
+	emp3.print_emp()
+	emp3.raise_sal = 1.6
+	emp3.raise_sala()
+	emp2.raise_sala()
+	emp3.test_me("sdfsafd")
+	emp1.test_cls()
+	emp2.test_cls()
+	emp3.test_cls()
