@@ -120,19 +120,44 @@ classC.print__data()
 
 print("*"*50+"New Class"+"*"*50)
 
-class NewClassA(MyClass):
+class NewClassB(MyClass):
 
 	def print_data(self):
 		for _data in self.dataA:
 			print(_data)
 
 	def print__data(self):
+		super(NewClassB, self).print__data()
+		print("NewClassB")
 		for _key, _val in self.dataB.items():
 			print("{} {}".format(_key, _val))
 
 
-classD = NewClassA(["data3", "data4", "data5"], **{"key3":"val3","key4":"val4","key5":"val5"})
+classD = NewClassB(["data3", "data4", "data5"], **{"key10":"val10","key11":"val11","key12":"val12"})
 
 classD.print_data()
 
 classD.print__data()
+
+print("*"*50+"New Class Testing super()."+"*"*50)
+
+class NewClassC(NewClassB):
+
+	def print_data(self):
+		for _data in self.dataA:
+			print(_data)
+
+	def print__data(self):
+		print("Before super")
+		# super(NewClassB, self).print__data()
+		print("After super")
+		for _key, _val in self.dataB.items():
+			print("{} {}".format(_key, _val))
+		super(NewClassC, self).print__data()
+
+
+classE = NewClassC(["data3", "data4", "data5"], **{"key3":"val3","key4":"val4","key5":"val5"})
+
+classE.print_data()
+
+classE.print__data()
